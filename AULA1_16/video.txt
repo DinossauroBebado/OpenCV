@@ -1,0 +1,9 @@
+https://www.youtube.com/watch?v=oXlwWbU8l2o&ab_channel=freeCodeCamp.org
+
+https://github.com/opencv/opencv/tree/master/data/haarcascades
+
+
+shortcuts 
+
+coment = ctrl + K Ctrl + c 
+uncoment = ctrl + k ctrl + u 
