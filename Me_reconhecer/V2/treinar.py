@@ -3,7 +3,7 @@ import cv2 as cv
 import numpy as np
 
 pessoas = ['DinossauroBebado']
-DIR = r'Pessoas'
+DIR = r'Me_reconhecer\Pessoas'
 
 haar_cascade = cv.CascadeClassifier('haar_face.xml')
 
