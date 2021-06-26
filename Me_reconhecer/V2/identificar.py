@@ -40,13 +40,27 @@ def pessoa(frame, pessoas):
 
 
 def bola(frame):
-
+    # aplica mascara das cores
     hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
     mask = cv.inRange(hsv, verdeClaro, verdeEscuro)
 
-    kernel = np.ones((5, 5), np.uint8)
+    # filtra a imagem
     mascE = cv.erode(mask, None, iterations=2)
     mascD = cv.dilate(mascE, None, iterations=2)
+    # acha os contornos
+    cnts = cv.findContours(mascD.copy(), cv.RETR_EXTERNAL,
+                           cv.CHAIN_APPROX_SIMPLE)[-2]
+    # se tiver achado alguma coisa
+    if len(cnts) > 0:
 
-    cv.imshow('Video', mascD)
+        c = max(cnts, key=cv.contourArea)
+        ((x, y), radius) = cv.minEnclosingCircle(c)
+
+        if (radius < 300) & (radius > 10):
+
+            cv.circle(frame, (int(x), int(y)), int(radius), (252, 127, 3), 2)
+            cv.putText(frame, "X: " + str(int(x))+" Y: "+str(int(y)), (50, 50),
+                       cv.FONT_HERSHEY_COMPLEX, 1.0, (252, 127, 3), thickness=1)
+            #print(int(x), int(y))
+
     return frame

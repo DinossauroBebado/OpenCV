@@ -13,10 +13,10 @@ while True:
     ret, frame = video_capture.read()
 
     # chama a função para usar o reconhecimento facial
-    #pessoa(frame, pessoas)
+    pessoa(frame, pessoas)
     bola(frame)
    # mostra
-    #cv.imshow('Video', frame)
+    cv.imshow('Video', frame)
 
     if cv.waitKey(1) & 0xFF == ord('q'):
         break
