@@ -43,7 +43,6 @@ def bola(frame):
     # aplica mascara das cores
     hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
     mask = cv.inRange(hsv, verdeClaro, verdeEscuro)
-
     # filtra a imagem
     mascE = cv.erode(mask, None, iterations=2)
     mascD = cv.dilate(mascE, None, iterations=2)
