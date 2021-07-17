@@ -3,7 +3,7 @@ import numpy as np
 
 faceCascade = cv.CascadeClassifier('haar_face.xml')
 face_recognizer = cv.face.LBPHFaceRecognizer_create()
-face_recognizer.read('treinado_DINO.yml')
+face_recognizer.read(r"V2\treinado_DINO.yml")
 TOLERANCIA = 100
 
 verdeClaro = (29, 86, 6)  # modificar para um ajuste
