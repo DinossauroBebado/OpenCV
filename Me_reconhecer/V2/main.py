@@ -1,7 +1,8 @@
 import sys
+
 import cv2 as cv
-from identificar import pessoa
-from identificar import bola
+
+from identificar import bola, pessoa
 
 pessoas = ['Dinossauro Bebado']
 
