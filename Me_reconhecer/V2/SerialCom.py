@@ -14,6 +14,5 @@ def write_read(x):
 
 
 while True:
-    num = input(":")
-    value = write_read(num)
+    value = write_read("c100,050")
     print(value)
