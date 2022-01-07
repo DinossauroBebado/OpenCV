@@ -1,7 +1,7 @@
 import cv2 as cv
 import numpy as np
 
-faceCascade = cv.CascadeClassifier('haar_face.xml')
+faceCascade = cv.CascadeClassifier(r'haar_face.xml')
 face_recognizer = cv.face.LBPHFaceRecognizer_create()
 face_recognizer.read(r"V2\treinado_DINO.yml")
 TOLERANCIA = 100
