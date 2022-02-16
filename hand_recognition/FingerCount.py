@@ -4,7 +4,10 @@ import os
 
 import HandTracking as ht
 
-DEBUG = True
+# documentation
+# https://google.github.io/mediapipe/solutions/hands
+
+DEBUG = False
 wCam, hCam = 640, 480
 
 cap = cv.VideoCapture(0)
@@ -26,19 +29,25 @@ while True:
     # search hand
     if(len(lmList) != 0):
         fingers = []
-        # expeption tumb
-        if lmList[tipIds[id]][1] < lmList[tipIds[id] - 1][1]:
+        # expeption thumb
+        # right hand
+        if lmList[tipIds[0]][1] > lmList[tipIds[0] - 1][1]:
             fingers.append(1)
         else:
             fingers.append(0)
-        # exclude tumb
+
+        # exclude thumb
         for id in range(1, 5):
             if lmList[tipIds[id]][2] < lmList[tipIds[id] - 2][2]:
                 fingers.append(1)
             else:
                 fingers.append(0)
+
+        number_fingers = sum(fingers)
         if DEBUG:
-            print(fingers)
+            print(fingers, number_fingers)
+        cv.putText(img, str(number_fingers), (10, 70),
+                   cv.FONT_HERSHEY_COMPLEX, 3, (255, 0, 0), 3)
 
     cv.imshow("Image", img)
     if cv.waitKey(20) & 0xFF == ord('q'):
